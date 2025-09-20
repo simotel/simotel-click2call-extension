@@ -59,7 +59,7 @@ const payloadData = {
             caller,
             callee: dest,
             context,
-            caller_id: dest,
+            caller_id: caller,
             timeout: "60",
             trunk_name: ""
         }

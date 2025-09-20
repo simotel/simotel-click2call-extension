@@ -2,7 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
   "name": "Simotel Click2Dial",
   "description": "Click-to-dial for Simotel (Local & Cloud / HostedPBX). Right-click a phone number and dial instantly via your PBX.",
-  "version": "3.0",
+  "version": "3.0.1",
   "manifest_version": 3,
   "options_page": "index.html",
   "permissions": [
