@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simotel Click2Dial</title>
+    <link rel="stylesheet" href="css/options.css">
+</head>
+
+<body>
+    <div class="wrapper main-container">
+        <header>
+            <img src="images/simotel.png" alt="">
+            <h4>Simotel Click2Dial</h4>
+        </header>
+        <nav>
+            <ul class="tabs-navigation">
+                <li class="p-45"><a href="#" data-dist="#dial-tab" class="active dialTabBtn">Speed Dial</a></li>
+                <li class="p-45"><a href="#" data-dist="#trunkDial-tab" class="trunkDialTabBtn">Trunk Dial</a></li>
+                <li class="p-10"><a href="#" data-dist="#options-tab" class="optionsTabBtn cog"><img
+                            src="images/cog.png"></a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="tabs">
+                <div class="tab" id="options-tab">
+                    
+<form class="form options-form" id="options_form">
+    <div class="row">
+        <div class="column">
+            <label class="required">Select Connection Mode</label>
+            <div class="inline">
+                <label><input type="radio" name="connection_mode" value="local" checked> Local</label>
+                <label><input type="radio" name="connection_mode" value="cloud"> Cloud (HostedPBX)</label>
+            </div>
+        </div>
+    </div>
+
+                        <div class="row">
+                            <div class="column">
+                                <label for="caller" class="required">Your Extension</label>
+                                <input type="text" name="caller" id="caller" required placeholder="Like: 200">
+                            </div>
+                            <div class="column">
+                                <label for="server" class="required">Your Server</label>
+                                <input type="text" name="server" id="server" required="required" placeholder="Like: 192.168.1.10">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label for="user" class="required">API User</label>
+                                <input type="text" name="user" id="user" required placeholder="Simotel API User">
+                            </div>
+                            <div class="column">
+                                <label for="pass" class="required">API Password</label>
+                                <input type="password" name="pass" id="pass" required placeholder="Simotel API Password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label for="context" class="required">Context</label>
+                                <input type="text" name="context" id="context" required
+                                    placeholder="Like: main_routing" value="main_routing">
+                            </div>
+                            <div class="column">
+                                <label for="trunkName">Trunk</label>
+                                <input type="text" name="trunkName" id="trunkName" placeholder="Just for Trunk dial">
+                            </div>
+
+                        </div>
+
+                        
+    <!-- Cloud fields -->
+    <div class="row cloud-only" style="display:none">
+        <div class="column">
+            <label for="cloud_caller" class="required">Your Extension</label>
+            <input type="text" name="cloud_caller" id="cloud_caller" placeholder="Like: 200">
+        </div>
+        <div class="column">
+            <label for="cloud_server" class="required">Server (Cloud)</label>
+            <input type="text" name="cloud_server" id="cloud_server" placeholder="https://panel.hostedpbx.ir/api/v4.1/" value="https://panel.hostedpbx.ir/api/v4.1/">
+        </div>
+    </div>
+    <div class="row cloud-only" style="display:none">
+        <div class="column">
+            <label for="cloud_api_token" class="required">API Token</label>
+            <input type="password" name="cloud_api_token" id="cloud_api_token" placeholder="Paste your token">
+        </div>
+        <div class="column">
+            <label for="cloud_context" class="required">Context</label>
+            <input type="text" name="cloud_context" id="cloud_context" placeholder="Like: outgoing_context" value="main_routing">
+        </div>
+    </div>
+    <div class="row cloud-only" style="display:none">
+        <div class="column">
+            <label for="cloud_trunkName">Trunk</label>
+            <input type="text" name="cloud_trunkName" id="cloud_trunkName" placeholder="Just for Trunk dial">
+        </div>
+    </div>
+	
+	                        <div class="checkboxGroup">
+                            <input type="checkbox" name="discoverTelLink" id="discoverTelLink" checked>
+                            <label for="discoverTelLink">Enable "Dial with Simotel" menu on right click</label>
+                        </div>
+<div>
+                            <button type='submit' value='Submit' id='optionsSubmit'>Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab" id="dial-tab">
+                    <form class="form dial-form" id="dial_form" action="#">
+                        <div class="row">
+                            <label for="destination">Number To Dial:</label>
+                            <input type="text" name="destination" id="destination" placeholder="">
+                        </div>
+                        <div class=" row call-button-holder" >
+                            <button type='submit' value='Call' id='dial-btn' >Call</button>
+                        </div>
+                    </form>
+                    <div class="history">
+                        <h5>Recent Calls:</h5>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div class="tab" id="trunkDial-tab">
+                    <form class="form trunkDial-form" id="trunkDial_form" action="#">
+                        <div class="row">
+                            <div class="column">
+                                <label for="trunkCaller">Source Number</label>
+                                <input type="text" name="trunkCaller" id="trunkCaller" placeholder="">
+                            </div>
+                            <div class="column">
+                                <label for="trunkCallee">Destination Number</label>
+                                <input type="text" name="trunkCallee" id="trunkCallee" placeholder="">
+                            </div>
+                        </div>
+                        <div class=" row call-button-holder" >
+                            <button type='submit' value='Call' id='dial-btn' >Call</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            Powered By <a target="_blank" href="https://nasimtel.com">Nasim Telecom</a>
+        </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/simotel.js"></script>
+    <script src="js/options.js"></script>
+</body>
+
+</html>
